@@ -858,35 +858,52 @@ em {
 .service-detail {
   scroll-margin-top: 125px;
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 100px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "photo heading" "photo body";
+  grid-template-rows: auto 1fr;
+  gap: 20px 64px;
+  align-items: start;
   border-top: 1px solid var(--line);
-  padding: 66px 0;
+  padding: 64px 0;
 }
 .service-photo {
+  grid-area: photo;
+  align-self: center;
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 28px;
-  border-radius: 4px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
 }
-.service-detail-title h2 {
-  font-size: 44px;
-  max-width: 360px;
+.service-detail-heading {
+  grid-area: heading;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.service-detail-heading h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  max-width: none;
+}
+.service-detail-body {
+  grid-area: body;
+  min-width: 0;
 }
 .large-icon {
-  display: block;
-  margin-bottom: 24px;
+  display: flex;
+  flex: 0 0 auto;
   color: #5e7956;
 }
 .large-icon svg {
-  width: 43px;
-  height: 43px;
+  width: 34px;
+  height: 34px;
 }
 .service-description {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 20px;
 }
 .check-list {
   list-style: none;
@@ -1452,7 +1469,7 @@ em {
     max-width: 290px;
   }
   .service-detail {
-    gap: 60px;
+    column-gap: 40px;
   }
   .faq-layout {
     gap: 50px;
@@ -1619,11 +1636,17 @@ em {
     grid-template-columns: 1fr 1fr;
   }
   .service-detail {
-    gap: 50px;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "heading" "photo" "body";
+    grid-template-rows: auto;
+    gap: 28px;
+    padding-block: 48px;
   }
-  .service-detail-title h2 {
-    font-size: 37px;
+  .service-photo {
+    aspect-ratio: auto;
+  }
+  .service-detail-heading h2 {
+    font-size: 34px;
   }
   .service-description {
     font-size: 16px;
@@ -2121,20 +2144,17 @@ em {
     scroll-margin-top: 100px;
   }
   .service-detail-heading {
-    display: flex;
-    align-items: center;
-    gap: 19px;
+    gap: 12px;
   }
-  .service-detail-title h2 {
-    font-size: 32px;
-    max-width: 280px;
+  .service-detail-heading h2 {
+    font-size: 28px;
   }
   .large-icon {
     margin: 0;
   }
   .large-icon svg {
-    width: 35px;
-    height: 35px;
+    width: 28px;
+    height: 28px;
   }
   .service-description {
     font-size: 15px;
