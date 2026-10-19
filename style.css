@@ -517,6 +517,13 @@ em {
 .section-lead {
   max-width: 370px;
 }
+@media (min-width: 651px) and (min-height: 700px) {
+  .services-overview > .section-lead {
+    position: sticky;
+    top: 124px;
+    align-self: start;
+  }
+}
 .section-lead h2 {
   margin-bottom: 25px;
 }
