@@ -1,3 +1,44 @@
+// Casual-copy deterrents only: public browser content remains downloadable.
+// Keep editing and copying visitors' own enquiry details available.
+const copyAllowedSelector =
+  'input, textarea, select, [contenteditable="true"], #enquiry-summary';
+const allowsCopy = (node) => {
+  const element = node instanceof Element ? node : node?.parentElement;
+  return Boolean(element?.closest(copyAllowedSelector));
+};
+const selectionAllowsCopy = () => {
+  const selection = window.getSelection();
+  return (
+    selection &&
+    !selection.isCollapsed &&
+    allowsCopy(selection.anchorNode) &&
+    allowsCopy(selection.focusNode)
+  );
+};
+for (const type of ["contextmenu", "selectstart", "dragstart"]) {
+  document.addEventListener(type, (event) => {
+    if (!allowsCopy(event.target)) event.preventDefault();
+  });
+}
+for (const type of ["copy", "cut"]) {
+  document.addEventListener(type, (event) => {
+    if (
+      !allowsCopy(event.target) &&
+      !allowsCopy(document.activeElement) &&
+      !selectionAllowsCopy()
+    )
+      event.preventDefault();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (
+    (event.ctrlKey || event.metaKey) &&
+    event.key.toLowerCase() === "a" &&
+    !allowsCopy(event.target)
+  )
+    event.preventDefault();
+});
+
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#main-nav");
 function closeMenu(restoreFocus = false) {
