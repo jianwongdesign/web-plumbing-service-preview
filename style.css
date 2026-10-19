@@ -858,13 +858,13 @@ em {
 .service-detail {
   scroll-margin-top: 125px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   grid-template-areas: "photo heading" "photo body";
   grid-template-rows: auto 1fr;
-  gap: 20px 64px;
+  gap: 12px 32px;
   align-items: start;
   border-top: 1px solid var(--line);
-  padding: 64px 0;
+  padding: 28px 0;
 }
 .service-photo {
   grid-area: photo;
@@ -872,24 +872,26 @@ em {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .service-detail-heading {
   grid-area: heading;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 .service-detail-heading h2 {
-  font-size: 36px;
-  line-height: 1.2;
+  font-size: 28px;
+  line-height: 1.25;
   max-width: none;
 }
 .service-detail-body {
   grid-area: body;
   min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px 20px;
+  align-items: center;
 }
 .large-icon {
   display: flex;
@@ -897,42 +899,49 @@ em {
   color: #5e7956;
 }
 .large-icon svg {
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
 }
 .service-description {
-  font-size: 17px;
-  line-height: 1.75;
-  margin-bottom: 20px;
+  grid-column: 1 / -1;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
 }
 .check-list {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
   list-style: none;
   padding: 0;
-  margin: 0 0 24px;
+  margin: 0;
 }
 .check-list li {
   display: flex;
   align-items: center;
-  gap: 11px;
-  margin-top: 11px;
-  font-size: 14px;
+  gap: 7px;
+  font-size: 13px;
 }
 .check-list svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: #57794b;
 }
 .service-note {
-  font-size: 13px;
-  line-height: 1.8;
+  font-size: 12px;
+  line-height: 1.6;
   color: var(--muted);
-  background: #edf0e7;
-  padding: 17px 20px;
-  border-radius: 6px;
-  margin: 28px 0;
+  border-left: 2px solid var(--line);
+  padding: 2px 0 2px 12px;
+  margin: 0;
 }
 .service-detail .button {
-  font-size: 13px;
+  font-size: 12px;
+  min-height: 46px;
+  padding: 12px 16px;
+  gap: 16px;
+  justify-self: start;
 }
 .warm-section {
   background: var(--sage);
@@ -1469,7 +1478,12 @@ em {
     max-width: 290px;
   }
   .service-detail {
-    column-gap: 40px;
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 24px;
+  }
+  .service-detail-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
   .faq-layout {
     gap: 50px;
@@ -1636,17 +1650,12 @@ em {
     grid-template-columns: 1fr 1fr;
   }
   .service-detail {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "heading" "photo" "body";
-    grid-template-rows: auto;
-    gap: 28px;
-    padding-block: 48px;
-  }
-  .service-photo {
-    aspect-ratio: auto;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 12px 24px;
+    padding-block: 24px;
   }
   .service-detail-heading h2 {
-    font-size: 34px;
+    font-size: 25px;
   }
   .service-description {
     font-size: 16px;
@@ -2138,16 +2147,18 @@ em {
     height: 21px;
   }
   .service-detail {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-block: 40px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "heading" "photo" "body";
+    grid-template-rows: auto;
+    gap: 16px;
+    padding-block: 24px;
     scroll-margin-top: 100px;
   }
   .service-detail-heading {
     gap: 12px;
   }
   .service-detail-heading h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
   .large-icon {
     margin: 0;
@@ -2158,15 +2169,15 @@ em {
   }
   .service-description {
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.65;
   }
   .check-list li {
     font-size: 13px;
   }
   .service-note {
     font-size: 12px;
-    padding: 16px;
-    margin-block: 23px;
+    padding: 2px 0 2px 12px;
+    margin: 0;
   }
   .service-detail .button {
     font-size: 12px;
